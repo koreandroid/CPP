@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <algorithm>
 
 #define S_MAX 100000
