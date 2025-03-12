@@ -7,8 +7,8 @@ int main()
     int t;
     scanf("%d", &t);
 
-    if (!(1 <= t && t <= 100)) {
-        printf("The value of T is invalid. It should be between 1 and 100.\n");
+    if (!(1 <= t && t <= T_MAX)) {
+        printf("The value of T is invalid. It should be between 1 and %d.\n", T_MAX);
         return -1;
     }
 
