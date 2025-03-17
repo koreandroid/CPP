@@ -8,16 +8,22 @@ class ProblemSolver {
     const double *resistances;
     const char *sp;     // Pointer variable of a string representing the circuit.
 
+    double answer;
+
     int cursor = -1;
 
     double temp[S_MAX / 4] = {0};
 
 public:
-    ProblemSolver(const double * const resistances, const char * const sp);
-
-    double calculateNext(const unsigned parenthesesDepth);
+    ProblemSolver(
+        const double * const resistances,
+        const char * const sp
+    ) : resistances(resistances), sp(sp) {}
 
     double solve();
+
+private:
+    double calculateNext(const unsigned parenthesesDepth);
 };
 
 int main() {
@@ -43,11 +49,13 @@ int main() {
 }
 
 /**
- * Constructor of [ProblemSolver].
+ * This function solves the problem and returns the answer.
  */
-ProblemSolver::ProblemSolver(const double * const resistances, const char * const sp) {
-    this->resistances = resistances;
-    this->sp = sp;
+double ProblemSolver::solve() {
+    cursor++;
+    answer = calculateNext(1);
+
+    return answer;
 }
 
 /**
@@ -83,15 +91,4 @@ double ProblemSolver::calculateNext(const unsigned parenthesesDepth) {
             op = sp[cursor];
         }
     } while (true);
-}
-
-/**
- * This function solves the problem and returns the answer.
- */
-double ProblemSolver::solve() {
-    double answer;
-    cursor++;
-    answer = calculateNext(1);
-
-    return answer;
 }
