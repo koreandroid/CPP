@@ -15,7 +15,8 @@ const char g_typeAlphs[PERSONAL_IND_COUNT][PERSONAL_TYPE_COUNT_PER] = {
     {'A', 'N'}
 };
 
-string solution(vector<string> survey, vector<int> choices) {
+string solution(vector<string> survey, vector<int> choices)
+{
     unsigned short scores[PERSONAL_TYPE_MAX_ALPH - 'A'] = {0};
 
     for (int i = 0; i < survey.size(); i++) {
@@ -24,9 +25,9 @@ string solution(vector<string> survey, vector<int> choices) {
         }
 
         if (choices[i] < 4) {
-            scores[survey[i][0] - 'A'] += 4 - choices[i];
+            scores[survey[i][0] - 'A'] += static_cast<unsigned short>(4 - choices[i]);
         } else {
-            scores[survey[i][1] - 'A'] += choices[i] - 4;
+            scores[survey[i][1] - 'A'] += static_cast<unsigned short>(choices[i] - 4);
         }
     }
 
