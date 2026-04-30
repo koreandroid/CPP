@@ -3,7 +3,8 @@
 
 using namespace std;
 
-vector<int> solution(vector<string> wallpaper) {
+vector<int> solution(vector<string> wallpaper)
+{
     int lurow = wallpaper.size() - 1;
     int lucol = wallpaper[0].length() - 1;
     int rdrow = 0;
